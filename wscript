@@ -19,17 +19,3 @@ def build(context, target=target):
     obj.uselib = 'uuid'
     obj.source = 'src/uuid.cc'
     obj.target = target
-
-    context.add_post_fun(move_addon)
-
-def move_addon(context, target=target):
-    """Move the compiled addon to the local lib directory. Previously compiled
-    versions of the addon are overwritten.
-
-    """
-    filename = '%s.node' % target
-    from_path = os.path.join(srcdir, blddir, 'default', filename)
-    to_path = os.path.join(srcdir, 'lib', filename)
-
-    if os.path.exists(from_path):
-        os.rename(from_path, to_path)
