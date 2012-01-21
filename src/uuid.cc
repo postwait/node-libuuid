@@ -1,6 +1,6 @@
 #include <v8.h>
 #include <node.h>
-#include <node_events.h>
+#include <node_object_wrap.h>
 #include <assert.h>
 #include <uuid/uuid.h>
 
