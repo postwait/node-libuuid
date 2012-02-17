@@ -11,7 +11,7 @@
 , "bugs" :
   { "url" : "http://github.com/postwait/node-libuuid/issues"
   }
-, "main" : "iptrie"
+, "main" : "./build/Release/libuuid.node"
 , "engines" : { "node" : "0.2 || 0.4 || 0.5 || 0.6" }
 , "licenses" :
   [ { "type" : "BSD" } ]
