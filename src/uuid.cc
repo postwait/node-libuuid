@@ -38,4 +38,4 @@ init(Handle<Object> target) {
   HandleScope scope;
   libuuid::Initialize(target);
 }
-NODE_MODULE(libuuid, init)
+NODE_MODULE(uuid, init)
