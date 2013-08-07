@@ -3,6 +3,14 @@
 #include <node_object_wrap.h>
 #include <assert.h>
 #include <uuid/uuid.h>
+#include <ctype.h>
+#undef UUID_STR_LEN
+#define UUID_STR_LEN 36
+static inline void my_uuid_unparse_lower(uuid_t in, char *out) {
+  int i;
+  uuid_unparse(in, out);
+  for(i=0;i<36;i++) out[i] = tolower(out[i]);
+}
 
 using namespace v8;
 using namespace node;
@@ -25,7 +33,7 @@ class libuuid {
       char uuid_str[37];
       uuid_generate(id);
 
-      uuid_unparse_lower(id, uuid_str);
+      my_uuid_unparse_lower(id, uuid_str);
       String::New(uuid_str);
 
       return scope.Close(String::New(uuid_str));
