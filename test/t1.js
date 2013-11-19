@@ -1,4 +1,4 @@
-var uuid = require('libuuid');
+var uuid = require('../build/Release/uuid.node');
 var start = (new Date()).getTime();
 var cnt = 1000000;
 for(var i=0;i<cnt;i++) {
