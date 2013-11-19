@@ -17,11 +17,20 @@
                 }
             ]
         }],
-        ['OS!="solaris"', {
+        ['OS=="linux"', {
             'targets': [
                 {
                     'target_name': 'uuid',
                     'sources': [ 'src/uuid.cc' ],
+                    'libraries': [ '-luuid' ],
+                }
+            ]
+        }],
+        ['OS=="mac"', {
+            'targets': [
+                {
+                    'target_name': 'uuid',
+                    'sources': [ 'src/uuid.cc' ]
                 }
             ]
         }]
