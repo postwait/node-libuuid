@@ -1,38 +1,27 @@
 {
-    'conditions': [
-        ['OS=="solaris"', {
-            'targets': [
-                {
-                    'target_name': 'uuid',
-                    'sources': [ 'src/uuid.cc' ],
+    'targets': [
+        {
+            'target_name': 'uuid',
+            'sources': [ 'src/uuid.cc' ],
+            'include_dirs': [
+                '<!(node -e "require(\'nan\')")'
+            ],
+            'conditions': [
+                ['OS=="solaris"', {
                     'libraries': [ '-luuid' ],
                     'conditions': [
                         ['target_arch=="ia32"', {
-                             'ldflags': [ '-L/opt/omni/lib -R/opt/omni/lib' ]
+                            'ldflags': [ '-L/opt/omni/lib -R/opt/omni/lib' ]
                         }],
                         ['target_arch=="x64"', {
-                             'ldflags': [ '-L/opt/omni/lib/amd64 -R/opt/omni/lib/amd64' ]
+                            'ldflags': [ '-L/opt/omni/lib/amd64 -R/opt/omni/lib/amd64' ]
                         }]
-                     ]
-                }
+                    ]
+                }],
+                ['OS=="linux"', {
+                    'libraries': [ '-luuid' ]
+                }]
             ]
-        }],
-        ['OS=="linux"', {
-            'targets': [
-                {
-                    'target_name': 'uuid',
-                    'sources': [ 'src/uuid.cc' ],
-                    'libraries': [ '-luuid' ],
-                }
-            ]
-        }],
-        ['OS=="mac"', {
-            'targets': [
-                {
-                    'target_name': 'uuid',
-                    'sources': [ 'src/uuid.cc' ]
-                }
-            ]
-        }]
+        }
     ]
 }
