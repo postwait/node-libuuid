@@ -8,11 +8,12 @@
   { "type" : "git"
   , "url" : "git://github.com/postwait/node-libuuid.git"
   }
+, "dependencies" : { "nan" : "1.8.4" }
 , "bugs" :
   { "url" : "http://github.com/postwait/node-libuuid/issues"
   }
 , "main" : "./build/Release/uuid.node"
-, "engines" : { "node" : "0.2 || 0.4 || 0.5 || 0.6 || 0.8 || 0.10" }
+, "engines" : { "node" : "0.2 || 0.4 || 0.5 || 0.6 || 0.8 || 0.10 || 0.12" }
 , "licenses" :
   [ { "type" : "BSD" } ]
 , "scripts" : { "test" : "node test/t1.js"}
