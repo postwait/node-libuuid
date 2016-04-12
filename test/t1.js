@@ -6,4 +6,4 @@ for(var i=0;i<cnt;i++) {
 }
 var end = (new Date()).getTime();
 console.log(cnt + " over " + (end-start)/1000.0 + " seconds");
-console.log(cnt/(end/start) + "create/second");
+console.log(cnt/((end-start)/1000.0) + " create/second");

@@ -1,7 +1,7 @@
-#include <v8.h>
-#include <node.h>
-#include <nan.h>
 #include <uuid/uuid.h>
+#include <node.h>
+#include <v8.h>
+#include <ctype.h>
 
 #undef UUID_STR_LEN
 #define UUID_STR_LEN 36
@@ -14,21 +14,19 @@ static inline void my_uuid_unparse_lower(uuid_t in, char *out) {
 using namespace v8;
 using namespace node;
 
-NAN_METHOD(Create) {
-  NanScope();
-
+void CreateUuid(const FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = args.GetIsolate();
   uuid_t id;
   char uuid_str[37];
 
   uuid_generate(id);
   my_uuid_unparse_lower(id, uuid_str);
 
-  NanReturnValue(NanNew<String>(uuid_str));
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, uuid_str));
 }
 
 
-void init(Handle<Object> exports) {
-  exports->Set(NanNew<String>("create"),
-    NanNew<FunctionTemplate>(Create)->GetFunction());
+void init(Local<Object> exports) {
+  NODE_SET_METHOD(exports, "create", CreateUuid);
 }
 NODE_MODULE(uuid, init)
