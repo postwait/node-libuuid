@@ -8,7 +8,7 @@
   { "type" : "git"
   , "url" : "git://github.com/postwait/node-libuuid.git"
   }
-, "dependencies" : { "nan" : "1.8.4" }
+, "dependencies" : { "nan" : "2.3.5" }
 , "bugs" :
   { "url" : "http://github.com/postwait/node-libuuid/issues"
   }
