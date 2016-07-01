@@ -1,7 +1,7 @@
 { "name" : "libuuid"
 , "description" : "link out to operating systems uuid_generate"
 , "keywords" : [ "libuuid", "uuid" ]
-, "version" : "0.2.0"
+, "version" : "0.2.1"
 , "author" : { "name" : "Theo Schlossnagle" }
 , "directories": { "lib": "." }
 , "repository" :
